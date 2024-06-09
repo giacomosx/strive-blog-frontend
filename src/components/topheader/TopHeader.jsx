@@ -39,7 +39,7 @@ const TopHeader = () => {
     return (
         <div className="font-mono top-header w-full bg-zinc-800 p-4 text-sm">
             <div className="flex items-center justify-between md:container md:mx-auto md:justify-end gap-4 min-h-8">
-                {isLoggedIn ? (
+                {user ? (
                     <>
                         <Link to={'/me'}>
                             <Avatar avatarPath={user?.avatar} name={user?.name} textWhite/>
