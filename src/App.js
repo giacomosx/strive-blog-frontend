@@ -17,11 +17,11 @@ const App = () => {
                 <Route index path="/" element={<Homepage/>}/>
                 <Route path="/post/:id" element={<SinglePost />}/>
                 <Route path="/authors" element={<Authors />}/>
-                <Route path="/create" element={<CreatePost/>}/>
                 <Route path="/become-author" element={<CreateAuthor />}/>
                 <Route path="/posts/:id" element={<AuthorPosts />}/>
                 <Route path="/login" element={<Login />}/>
                 <Route element={<ProtectedRoutes />}>
+                    <Route path="/create" element={<CreatePost/>}/>
                     <Route path={'/me'} element={<UserProfile />}/>
                 </Route>
                 <Route path="*" element={<Page404 /> }/>
