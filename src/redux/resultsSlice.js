@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 
-const baseUrl = process.env.REACT_APP_BASE_URL;
+const baseUrl = 'https://strive-blog-gsx-c679dec9e563.herokuapp.com/api' //process.env.REACT_APP_BASE_URL;
 
 const initialState = {
     isLoading: false,
