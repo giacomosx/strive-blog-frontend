@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+    a[title="Write"], a[title="Become an author"] {
+        @apply text-zinc-800 bg-[#02FF84] py-2 px-4 font-bold lg:block border border-zinc-800 ;
+    }
+
+    .dots {
+        width: 56px;
+        height: 13.4px;
+        background: radial-gradient(circle closest-side, #27272A 90%, #0000) 0 0/33% 100% space;
+        clip-path: inset(0 100% 0 0);
+        animation: dots-e3xtdg 1.5s steps(4) infinite;
+    }
+
+    @keyframes dots-e3xtdg {
+        to {
+            clip-path: inset(0 -34% 0 0);
+        }
+    }
+
+}
