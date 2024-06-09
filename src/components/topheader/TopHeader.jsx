@@ -34,6 +34,7 @@ const TopHeader = () => {
 
     const handleClick = () => {
         dispatch(logout())
+        setUser(null);
     }
 
     return (
