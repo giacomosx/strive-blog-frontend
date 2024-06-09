@@ -47,8 +47,6 @@ const Login = () => {
         }
     }
 
-    console.log(localStorage)
-
     return (
         <Layout>
             <div className="flex justify-center items-center h-full w-full mt-4 px-4">
