@@ -7,7 +7,6 @@ import Login from "../pages/Login";
 const useAuth = () => {
     const [params] = useSearchParams()
     const tokenParams = params.get('token') ? params.get('token') : null;
-    console.log(tokenParams)
     if (!tokenParams) {
         const token = localStorage.getItem('token');
         return token

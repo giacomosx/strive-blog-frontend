@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Page404 from "./pages/404";
 import ProtectedRoutes from "./middlewares/ProtectedRoutes";
 import UserProfile from "./pages/UserProfile";
+import ResultsPage from "./pages/ResultsPage";
 
 const App = () => {
     return (
@@ -19,6 +20,7 @@ const App = () => {
                 <Route path="/authors" element={<Authors />}/>
                 <Route path="/become-author" element={<CreateAuthor />}/>
                 <Route path="/posts/:id" element={<AuthorPosts />}/>
+                <Route path="/category/:category" element={<ResultsPage />}/>
                 <Route path="/login" element={<Login />}/>
                 <Route element={<ProtectedRoutes />}>
                     <Route path="/create" element={<CreatePost/>}/>
