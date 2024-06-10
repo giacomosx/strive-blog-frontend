@@ -2,11 +2,12 @@ import {jwtDecode} from "jwt-decode";
 import {Outlet, useNavigate, useParams, useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import Login from "../pages/Login";
-import {pem as jwt} from "node-forge";
+
 
 const useAuth = () => {
     const [params] = useSearchParams()
     const tokenParams = params.get('token') ? params.get('token') : null;
+    console.log(tokenParams)
     if (!tokenParams) {
         const token = localStorage.getItem('token');
         return token
@@ -22,9 +23,10 @@ export const useSession = () => {
     const decodedSession = session ? jwtDecode(session) : null
     const navigate = useNavigate();
 
+
     useEffect(() => {
         if (!session) {
-            navigate("/login");
+            //navigate("/login");
         }
     }, [navigate, session]);
 
