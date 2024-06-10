@@ -1,17 +1,25 @@
 import {jwtDecode} from "jwt-decode";
-import {Outlet, useNavigate} from "react-router-dom";
-import {useEffect} from "react";
+import {Outlet, useNavigate, useParams, useSearchParams} from "react-router-dom";
+import {useEffect, useState} from "react";
 import Login from "../pages/Login";
+import {pem as jwt} from "node-forge";
 
 const useAuth = () => {
-    const token = localStorage.getItem('token');
+    const [params] = useSearchParams()
+    const tokenParams = params.get('token') ? params.get('token') : null;
+    if (!tokenParams) {
+        const token = localStorage.getItem('token');
+        return token
+    } else {
+        localStorage.setItem('token', tokenParams)
 
-    return token
+        return tokenParams
+    }
 }
 
 export const useSession = () => {
     const session = useAuth()
-    const decodedSession = jwtDecode(session)
+    const decodedSession = session ? jwtDecode(session) : null
     const navigate = useNavigate();
 
     useEffect(() => {

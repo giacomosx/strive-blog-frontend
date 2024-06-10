@@ -4,7 +4,7 @@ import InputField from "../components/inputfield/InputField";
 import Button from "../components/button/Button";
 import axios from "axios";
 import ErrorBlock from "../components/errorBlock/ErrorBlock";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { useDispatch} from "react-redux";
 import {login} from "../redux/loginSlice";
 
@@ -76,6 +76,7 @@ const Login = () => {
                         {error && <ErrorBlock>{error}</ErrorBlock>}
                         {success && (<span className={'text-sm text-green-800 block'}>User logged!</span>)}
                         <Button addingClass={'w-full mt-4'} titleBtn={'Login'} type={'button'} onClick={handleClick}/>
+                        <p className={'mt-8'}>or <Link className={'underline text-zinc-500 text-sm'} to={`${process.env.REACT_APP_BASE_URL}/auth/google-login`}>Login with Google</Link></p>
                     </form>
                 </div>
             </div>

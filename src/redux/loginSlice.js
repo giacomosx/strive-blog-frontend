@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {jwtDecode} from "jwt-decode";
 
-
 const decodedToken = localStorage.getItem("token") ? jwtDecode(localStorage.getItem("token")) : null;
 
 const currentDate = new Date()
@@ -15,7 +14,7 @@ const loginSlice = createSlice({
     initialState,
     reducers: {
         login: (state, action) => {
-            state.isLoggedIn = true
+            state.isLoggedIn = action.payload
         },
         logout: (state) => {
             state.isLoggedIn = null

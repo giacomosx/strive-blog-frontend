@@ -1,18 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {logout, logState} from "../../redux/loginSlice";
+import {logout, logState, login} from "../../redux/loginSlice";
 import Avatar from "../avatar/Avatar";
 import AxiosApi from "../../api/axiosApi";
+import {useSession} from "../../middlewares/ProtectedRoutes";
 
 const TopHeader = () => {
     const api = new AxiosApi()
     const isLoggedIn = useSelector(logState);
     const dispatch = useDispatch();
     const [user, setUser] = useState(null);
+    const session = useSession();
 
     const getUserInfo = async () => {
-        if (localStorage.getItem("user")) {
+        if (session.userId) {
             try {
                 const response = await api.get('/authors/me')
                 setUser(response);
@@ -26,7 +28,7 @@ const TopHeader = () => {
     }
 
     useEffect(() => {
-        if (isLoggedIn) {
+        if (isLoggedIn || session) {
             getUserInfo();
         }
         // eslint-disable-next-line
